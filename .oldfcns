@@ -1,0 +1,44 @@
+###############################################
+#######  Helpful Research Functions  ##########
+#findproj () { ext=""; if [ -z "$1" ]; then echo "Error: Enter Project Name"; return; fi; found=`find ~/Research$ext -path "*$1" -type d | head -1` ; echo "$found"; } # Last part there ensures only one entry is returned; no issues w/ this so far.
+# It was important to do this so that cdproj worked properly; that said, can implement in cdproj
+# instead if you want findproj to list more than one entry... But that could be another entry, say, lsproj.
+
+#cdproj () { proj=`findproj $1`; if [ ${proj:0:6} == "Error:" ]; then echo $proj; else echo "Leaving $PWD"; echo "Entering $proj"; cd $proj; fi; }
+
+#lsproj () { proj=`findproj $1`; if [ ${proj:0:6} == "Error:" ]; then echo $proj; else echo "Current directory: $PWD"; echo "Listed directory: $proj"; ls $proj; fi; }
+
+
+#moreproj () { 
+#    do_cat=0
+#    if [ $1 == "-c" ]; then do_cat=1; shift; fi
+#    proj=`findproj $1`; 
+#    if [ ${proj:0:6} == "Error:" ]; then 
+#      echo $proj; 
+#    else 
+#      echo "Listed directory: $proj"; 
+#      ls $proj; printf "\nSelect file: \n"; 
+#      read; 
+#      printf "\n\n\n"
+#      if ((do_cat==1)); then
+#        cat ${proj}/$REPLY; printf "\n\n\n";
+#      else
+#        more ${proj}/$REPLY; 
+#      fi;
+#    fi; 
+#    printf "\n\n\n";
+#}
+
+#addproj () { 
+#    if [ "$1" == "--help" ]; then echo "Add the code directory of any project under ~/Research.";
+#    echo "To see if project exists, use findproj."; exit 1; fi; 
+#    proj=$1; 
+#    if [ -z "$1" ]; then printf "Error: Enter Project Name\n-- For more info, type: addproj --help\n"; 
+#    else # In case I include the /code part sometimes and sometimes not, make consistent
+#    proj=`find ~/Research -path "*${proj%/code}" -type d`; 
+#    fi
+#  proj="${proj}/code"
+#  PATH=${PATH}:$proj
+#
+#  printf "Added to PATH: \n$proj\n"
+#} #endFcn

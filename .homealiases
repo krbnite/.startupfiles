@@ -1,0 +1,80 @@
+#==========================================
+#  Space Weather
+#==========================================
+alias sw='cd ~/Research/SpaceWeather/'
+# BASH: TL Research
+alias tlbash='cd ~/bin/bash/Research/'
+
+#==========================================
+# Data Directory
+#==========================================
+alias data='cd ~/DATA/'
+
+#==========================================
+#  Personal Website 
+#==========================================
+alias ku='cd ~/Research/Websites/Personal/'
+
+#==========================================
+#  TL Website
+#==========================================
+alias tl='cd ~/Google\ Drive/Research/Websites/TL'
+alias ftl='ftp agerrard@terrestrial-lab.org'
+alias sx='stat -x'
+alias path="printf ${PATH//:/'\n'}'\n'"
+
+#==========================================
+#  Add bash scripts
+#==========================================
+myBash=$(echo /Users/Kurban/bin/bash{,/BashHelp,/LaTeX,/KuSite,/AGO,/SwPrez,/IDL} | sed 's/ /:/g')
+add2path=$myBash
+
+#==========================================
+#  LaTeX
+#==========================================
+# Jan 29, 2014: I downloaded TeXLive2013 so I can update my LaTeX packages and
+# get some new packages (e.g., fancyhd). Since I didn't uninstall all of MacTeX
+# and reinstall the latest MacTex2013, /usr/texbin still points to all TexLive2011
+# stuff. To circumvent this for now, I just have to add to my path a direct route
+# to the 2013 stuff and take the 2011 route out.
+#PATH=/usr/local/bin:/usr/local/texlive/2013:$PATH:${add2path}
+PATH=${homeBrewSBin}/usr/local/bin:/usr/local/texlive/2013/bin/x86_64-darwin:$PATH:${add2path}
+
+#===============================================
+# IDL
+#===============================================
+# SOURCE IDL: THIS WILL SET-UP THE "IDL" COMMAND-LINE COMMANDS
+source /Applications/exelis/idl82/bin/idl_setup.bash
+# IDL START-UP FILE
+IDL_STARTUP=~/.idl_startup.pro
+export IDL_STARTUP
+# CUSTOM IDL PATHS
+# ...need to figure out how to get IDL to recursively search subdirs of a custom
+IDL_PATH='~/bin/IDL/TL_Suite:<IDL_DEFAULT>'
+export IDL_PATH
+# IDL DLM PATHS
+IDL_DLM_PATH='~/bin/IDL/DLM:<IDL_DEFAULT>'
+export IDL_DLM_PATH
+# Add IDL to search path
+export PATH=$PATH:/Application/exelis/idl82/bin
+# The idl alias doesn't get passed into bash scripts... But functions do.
+idlq () { "/Applications/exelis/idl82/bin/idl" -quiet; }
+alias IDL='idl'
+# Environment Var for updated CDF Reader
+# See: http://cdf.gsfc.nasa.gov/html/cdf_patch_for_idl.html
+export CDF_LEAPSECONDSTABLE='/Applications/exelis/idl82/lib/research/cdf/CDFLeapSeconds.txt'
+# IDL: TL Code
+alias tl='cd /Applications/exelis/idl82/lib/research/mine/TL_Suite/'
+# IDL: Research Code
+alias myidl='cd /Applications/exelis/idl82/lib/research/mine/'
+# GDL
+alias mygdl='cd /usr/local/Cellar/gnudatalanguage/'
+
+#===============================================
+# Misc
+#===============================================
+# WWE Research
+alias wwe='cd ~/Research/DataSci/WWE/'
+# Udacity Courses
+alias udacity='cd ~/Research/Courses/Udacity/'
+
