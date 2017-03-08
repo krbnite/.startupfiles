@@ -71,6 +71,24 @@ alias myidl='cd /Applications/exelis/idl82/lib/research/mine/'
 alias mygdl='cd /usr/local/Cellar/gnudatalanguage/'
 
 #===============================================
+# MS Office
+#===============================================
+alias powerpoint='open /Applications/Microsoft\ Office\ 2011/Microsoft\ PowerPoint.app/'
+alias excel='open /Applications/Microsoft\ Office\ 2011/Microsoft\ Excel.app/'
+alias outlook='open /Applications/Microsoft\ Office\ 2011/Microsoft\ Outlook.app/'
+alias msword='open /Applications/Microsoft\ Office\ 2011/Microsoft\ Word.app/'
+
+#===============================================
+# Google App Engine
+#===============================================
+# The next line updates PATH for the Google Cloud SDK.
+source '/Users/Kurban/Research/Websites/HooknUp/google-cloud-sdk/path.bash.inc'
+# The next line enables shell command completion for gcloud.
+source '/Users/Kurban/Research/Websites/HooknUp/google-cloud-sdk/completion.bash.inc'
+# Put App Engine in Path
+export PATH=$PATH:/Users/Kurban/Research/Websites/HooknUp/google_appengine;
+
+#===============================================
 # Misc
 #===============================================
 # WWE Research

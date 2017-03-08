@@ -14,35 +14,22 @@ set -o vi
 # Directory Shortcuts
 #===============================================
 alias chrome='open /Applications/Google\ Chrome.app'
+alias rstudio='open /Applications/RStudio.app'
 
+#------------------------
 # Work Computer
+#------------------------
 if [ `hostname`='MAC-MBP161511.local' ]; then
   source .workaliases;
   alias ~~='cd /Volumes/kurban'; 
 fi
+#------------------------
 # Home Computer
+#------------------------
 if [ `hostname`='Cephin-Herbin.local' ]; then
   source .homealiases;
-  VIRTUALENVWRAPPER_PYTHON=/Users/Kurban/anaconda3/bin/python 
   alias ~~='cd ~'; 
-  # The next line updates PATH for the Google Cloud SDK.
-  source '/Users/Kurban/Research/Websites/HooknUp/google-cloud-sdk/path.bash.inc'
-  # The next line enables shell command completion for gcloud.
-  source '/Users/Kurban/Research/Websites/HooknUp/google-cloud-sdk/completion.bash.inc'
-  # Put App Engine in Path
-  export PATH=$PATH:/Users/Kurban/Research/Websites/HooknUp/google_appengine;
-  # MS Office
-  alias powerpoint='open /Applications/Microsoft\ Office\ 2011/Microsoft\ PowerPoint.app/'
-  alias excel='open /Applications/Microsoft\ Office\ 2011/Microsoft\ Excel.app/'
-  alias outlook='open /Applications/Microsoft\ Office\ 2011/Microsoft\ Outlook.app/'
-  alias msword='open /Applications/Microsoft\ Office\ 2011/Microsoft\ Word.app/'
-  # MS Office
-  alias powerpoint='open /Applications/Microsoft\ PowerPoint.app/'
-  alias excel='open /Applications/Microsoft\ Excel.app/'
-  alias outlook='open /Applications/Microsoft\ Outlook.app/'
-  alias msword='open /Applications/Microsoft\ Word.app/'
-  # Open RStudio
-  alias rstudio='open /Applications/RStudio.app'
+  VIRTUALENVWRAPPER_PYTHON=/Users/Kurban/anaconda3/bin/python 
 fi
 
 
