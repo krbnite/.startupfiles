@@ -11,6 +11,19 @@ export LSCOLORS=ExFxBxDxCxegedabagacad
 set -o vi
 
 #===============================================
+# Update Start-Up Files
+#===============================================
+.update() {
+  cp ~/.startupfiles/.bash_profile ~
+  cp ~/.startupfiles/.workaliases ~
+  cp ~/.startupfiles/.homealiases ~
+  cp ~/.startupfiles/.vimrc ~
+  cp ~/.startupfiles/.tmux.conf ~
+  cp ~/.startupfiles/.oldfcns ~
+  cp ~/.startupfiles/.Rprofile ~
+}
+
+#===============================================
 # Directory Shortcuts
 #===============================================
 alias chrome='open /Applications/Google\ Chrome.app'
@@ -19,17 +32,21 @@ alias rstudio='open /Applications/RStudio.app'
 #------------------------
 # Work Computer
 #------------------------
-if [ `hostname`='MAC-MBP161511.local' ]; then
+if [ `hostname` = 'MAC-MBP161511.local' ]; then
   source .workaliases;
   alias ~~='cd /Volumes/kurban'; 
 fi
 #------------------------
 # Home Computer
 #------------------------
-if [ `hostname`='Cephin-Herbin.local' ]; then
+if [ `hostname` = 'Cephin-Herbin.local' ]; then
   source .homealiases;
   alias ~~='cd ~'; 
+  # VirtualEnv Stuff
   VIRTUALENVWRAPPER_PYTHON=/Users/Kurban/anaconda3/bin/python 
+  export PATH=~/anaconda3/bin:"$PATH"
+  WORKON_HOME=$HOME/.virtualenvs
+  source /usr/local/bin/virtualenvwrapper.sh
 fi
 
 
@@ -80,8 +97,6 @@ alias dugui='open /Applications/Utilities/Disk\ Utility.app'         # Disk Util
 
 homeBrewSBin="/usr/local/sbin:"
 
-#export PATH
-export PATH=~/anaconda3/bin:"$PATH"
 
 
 
@@ -100,11 +115,6 @@ alias got='git '
 alias get='git '
 
 
-#===============================================
-# virtualenvwrapper stuff
-#===============================================
-WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
 
 
 #===============================================
