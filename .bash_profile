@@ -14,13 +14,7 @@ set -o vi
 # Update Start-Up Files
 #===============================================
 .update() {
-  cp ~/.startupfiles/.bash_profile ~
-  cp ~/.startupfiles/.workaliases ~
-  cp ~/.startupfiles/.homealiases ~
-  cp ~/.startupfiles/.vimrc ~
-  cp ~/.startupfiles/.tmux.conf ~
-  cp ~/.startupfiles/.oldfcns ~
-  cp ~/.startupfiles/.Rprofile ~
+  cp `ls -lrtF -d -1 .startupfiles/{,.*} | grep "[a-z]$"` ~
 }
 
 #===============================================
@@ -28,6 +22,8 @@ set -o vi
 #===============================================
 alias chrome='open /Applications/Google\ Chrome.app'
 alias rstudio='open /Applications/RStudio.app'
+alias psql0='brew services start postgres'
+alias psqlf='brew services stop postgres'
 
 #------------------------
 # Work Computer
@@ -35,6 +31,7 @@ alias rstudio='open /Applications/RStudio.app'
 if [ `hostname` = 'MAC-MBP161511.local' ]; then
   source .workaliases;
   alias ~~='cd /Volumes/kurban'; 
+  alias pgadmin='open /Applications/pgAdmin\ 4.app'
 fi
 #------------------------
 # Home Computer
@@ -49,6 +46,7 @@ if [ `hostname` = 'Cephin-Herbin.local' ]; then
   source /usr/local/bin/virtualenvwrapper.sh
 fi
 
+export PATH=~/anaconda3/bin:"$PATH"
 
 #===============================================
 # Cmd shortcuts
@@ -142,9 +140,7 @@ pc () { python -c "print $1"; }
 #===============================================
 # -- if you don't have it, brew install bash-completion
 # -- for brew completions, then: brew tap homebrew/completions
-if [ -f $(brew --prefix)/etc/bash_completion ]; then 
-	. $(brew --prefix)/etc/bash_completion
-fi
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 #===============================================
 # Tmux
