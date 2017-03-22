@@ -29,7 +29,7 @@ alias psqlf='brew services stop postgres'
 # Work Computer
 #------------------------
 if [ `hostname` = 'MAC-MBP161511.local' ]; then
-  source .workaliases;
+  source ~/.workaliases;
   alias ~~='cd /Volumes/kurban'; 
   alias pgadmin='open /Applications/pgAdmin\ 4.app'
 fi
@@ -37,7 +37,7 @@ fi
 # Home Computer
 #------------------------
 if [ `hostname` = 'Cephin-Herbin.local' ]; then
-  source .homealiases;
+  source ~/.homealiases;
   alias ~~='cd ~'; 
   # VirtualEnv Stuff
   VIRTUALENVWRAPPER_PYTHON=/Users/Kurban/anaconda3/bin/python 
