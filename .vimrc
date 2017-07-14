@@ -193,6 +193,7 @@ map <leader>ss :setlocal spell!<cr>
 inoremap <S-Tab> <Esc>
 inoremap <C-z> <Esc> 
 inoremap <C-v> <Esc>
+inoremap <C-c> <Esc>
 " <C-z> immediately exits you out of VIM, which is
 "   a nightmare; so I just remap it stop that.
 
@@ -218,24 +219,14 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 " Syntastic
 "----------------------------------------------------------------------
 "The 8 commands were rec'd for newbs in Syntastic help file
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
 
-"----------------------------------------------------------------------
-" Solarized ColorScheme
-"----------------------------------------------------------------------
-set t_Co=256
-let g:solarized_termcolors=256
-
-"  ewwwww, it isn't working properly at all (2017-02-09)
-"syntax enable
-"set background=dark
-"colorscheme solarized
 
 "----------------------------------------------------------------------
 " HELP
@@ -246,5 +237,30 @@ let g:solarized_termcolors=256
 "nnoremap <buffer> <CR> <C-]>
 " Press 'Delete' (backspace) to return from jump
 "nnoremap <buffer> <BS> <C-T>
+
+" Folding
+"set foldmethod=indent "creates folds based upon line indents
+"nnoremap <space><space> za
+" better folding rec: SimplyFold
+
+"2017-0-14
+" enable all Python syntax highlighting features
+let python_highlight_all = 1
+
+"----------------------------------------------------------------------
+" Solarized ColorScheme
+"----------------------------------------------------------------------
+"  NOTE: since I solarized Terminal.app, I do not need these commands
+"    -- in fact, you can mess colors up pretty quickly w/ em!
+"    -- if I use macvim or gvim, these become more important
+"    -- to solarize Terminal, git clone the solarized repository 
+"       go to the Terminal.app subdirectory...etc.
+"set term=xterm  
+"syntax enable
+"set background=dark
+"colorscheme solarized
+"let g:solarized_termcolors=16 "default, if Terminal not solarized then  256
+
+
 
 
