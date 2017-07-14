@@ -1,9 +1,15 @@
 #===============================================
 # COLORS 
 #===============================================
-export PS1="\[\e[36;1m\]\s\v \[\e[32;1m\]{\W}$ \[\e[0m\]"
+export PS1="\[\e[31;1m\]\s\v \[\e[35;1m\]{\W}$ \[\e[0m\]"
 export CLICOLOR=1
-export LSCOLORS=ExFxBxDxCxegedabagacad
+
+#changed 2017-07-14 (trying to get ls to have more solarized colors)
+#export LSCOLORS=ExFxBxDxCxegedabagacad
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx  # Nice!
+# Tell grep to highlight matches
+export GREP_OPTIONS='--color=auto'   # Nice!
+
 
 #===============================================
 # GIVE COMMAND LINE VI-LIKE FEATURES
@@ -37,7 +43,7 @@ fi
 # Home Computer
 #------------------------
 if [ `hostname` = 'Cephin-Herbin.local' ]; then
-  source ~/.homealiases;
+  source .homealiases;
   alias ~~='cd ~'; 
   # VirtualEnv Stuff
   VIRTUALENVWRAPPER_PYTHON=/Users/Kurban/anaconda3/bin/python 
