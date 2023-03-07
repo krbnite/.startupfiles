@@ -219,6 +219,61 @@ git stash pop stash@{1}
 ```
 
 
+
+
+# Git Tag
+List tags
+```
+git tag
+
+# w/ commit msgs
+git tag -n
+```
+
+List remote tags
+```
+git ls-remote --tags origin
+```
+
+Tag current comment
+```
+# 99% always use -a flag to create an annotated tag
+git tag <tagName> -a "This is version <tagName> bla, bla, bla,"
+```
+
+Delete a tag
+```
+git tag -d <tagName>
+```
+
+Delete a remote tag
+```
+git push --delete origin <tagName>
+# Or...
+git push origin :refs/tags/<tagName>
+```
+
+### Syncing Tags
+Note that tags are local by default and do not push to the remote by default.  You have
+to explicitly push a tag to the remote.
+```
+git push origin <tagName>
+
+# To push all local tags (prob not the best idea)
+git push origin --tags
+```
+
+List remote tags
+```
+git ls-remote --tags origin
+```
+
+Get all remote tags
+```
+git fetch --all --tags
+```
+
+
 -------------
 
 # FETCH vs PULL
