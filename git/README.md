@@ -245,7 +245,7 @@ git ls-remote --tags origin
 Tag current comment
 ```
 # 99% always use -a flag to create an annotated tag
-git tag <tagName> -a "This is version <tagName> bla, bla, bla,"
+git tag -a <tagName> -m "This is version <tagName> bla, bla, bla,"
 ```
 
 Delete a tag
