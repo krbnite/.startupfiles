@@ -1,10 +1,17 @@
 Undo changes to local working directory (e.g., things that might have changed accidentally in a 
 Jupyter Notebook that you don’t care to save).
 ```
+# All
 git checkout -- .
 
 # You can also do:
 git reset -- .
+
+# Specific file
+git checkout -- <fileName>
+
+# You can also use restore
+git restore <fileName>
 ```
 
 List remotes:
