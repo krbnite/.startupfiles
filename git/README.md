@@ -274,6 +274,32 @@ git fetch --all --tags
 ```
 
 
+------------
+
+# MISC
+
+List all files tracked in the repo
+```
+git ls-files
+```
+
+Only list modified files
+```
+git ls-files -m
+```
+
+Show untracked files
+```
+git ls-files -o
+```
+
+List any deleted files
+```
+git ls-files -d
+```
+
+
+
 -------------
 
 # FETCH vs PULL
